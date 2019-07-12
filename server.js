@@ -1,6 +1,15 @@
 const express = require('express');
 const app = express();
 app.use(express.static(__dirname + '/public'));
+//Express HBS
+app.set('view engine', 'hbs');
+app.get('/', (req, res) => {
+    res.render('home', {
+        nombre: 'Victoria',
+        anio: new Date().getFullYear()
+    });
+})
+
 // app.get('/', function (req, res) {
 //   res.send('Hello World')
 // })
