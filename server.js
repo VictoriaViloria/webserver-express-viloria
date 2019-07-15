@@ -7,6 +7,7 @@ hbs.registerPartials(__dirname + '/views/parciales');
 app.set('view engine', 'hbs');
 // //helpers
 require('./hbs/helpers');
+const port = process.env.PORT || 3000;
 // hbs.registerHelper('getAnio', () => {
 //     return new Date().getFullYear();
 // });
@@ -17,23 +18,20 @@ require('./hbs/helpers');
 //     });
 //     return palabras.join(' ');
 // })
-
-
 app.get('/', (req, res) => {
     res.render('home', {
         nombre: 'vICToriAa',
         // anio: new Date().getFullYear()
     });
 });
-
 app.get('/about', (req, res) => {
     res.render('about', {
         nombre: 'felipe',
         // anio: new Date().getFullYear()
     });
 });
-app.listen(3000, () => {
-    console.log('escuchando peticiones en el puerto 3000');
+app.listen(port, () => {
+    console.log(`escuchando peticiones en el puerto ${ port }`);
 });
 // app.get('/', function (req, res) {
 //   res.send('Hello World')
